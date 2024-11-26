@@ -6,6 +6,14 @@ from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 # Create your views here.
 
+def home(request):
+    return render (request, 'users/index.html')
+
+
+def home(request):
+    return render (request, 'users/index.html')
+
+
 def register(request):
     if request.method == 'POST':
         first_name = request.POST.get('FirstName')

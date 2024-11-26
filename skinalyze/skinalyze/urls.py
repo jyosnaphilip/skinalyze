@@ -20,6 +20,8 @@ from user.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('',home, name='home'),
+
     path('register/',register,name='register'),
     path('login/',user_login,name='user_login'), 
     path('winter_deep/', winter_deep, name='winter_deep'),

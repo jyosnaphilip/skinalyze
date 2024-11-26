@@ -1,0 +1,121 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+
+
+<div id="content" class="expanded">
+    <div class="container ">
+        <div class="row justify-content-center w-75" style="margin: auto;">
+
+
+            <form method="POST">
+                {% csrf_token %}
+                <div class="form-box p-3">
+                    <div class="text">
+                        Add issue
+                    </div>
+
+                    <div class="form-row">
+                        <div class="input-data">
+                            <input type="text" id="title" name="title" required>
+                            <div class="underline"></div>
+                            <label for="title">Title</label>
+                        </div>
+
+                    </div>
+<!-- 
+                    <div class="form-row"> -->
+                        <!-- <div class="input-data textarea">
+                            <textarea rows="8" cols="80" name="desc" ></textarea>
+                            <br />
+                            <div class="underline"></div>
+                            <label for="desc">Add description</label>
+                            <textarea id="description" name="description">
+                            </textarea>
+                            <br />
+                        </div> -->
+                    <!-- </div> -->
+                    <div class="form-row">
+                        <div class="texteditor">
+                            <label for="des">Description</label>
+                            <textarea id="description" name="description">
+                            </textarea>
+                            <br />
+                        </div>
+                    </div>
+                    
+                    <div class="form-row justify-content-start ms-3">
+                        
+                          
+                          <div class="dropdown rounded-pill me-2">
+                            <select class="form-select custom-select rounded-pill" type="button" name="priority" data-bs-toggle="dropdown" id="selectDropdown" aria-expanded="false" required>
+                                <option selected disabled class="dropdown-item">Priority</option>
+                                <option class="dropdown-item" value="1">Urgent</option>
+                                <option class="dropdown-item " value="2">High</option>
+                                <option class="dropdown-item " value="3">Moderate</option>
+                                <option class="dropdown-item " value="4">Low</option>
+                              </select>
+                          </div>
+                          <div class="dropdown rounded-pill me-2">
+                            <select class="form-select custom-select rounded-pill" type="button" name="status" data-bs-toggle="dropdown" id="selectDropdown2" aria-expanded="false" required>
+                                <option selected disabled class="dropdown-item">Status</option>
+                                <option class="dropdown-item" value="1"><i class="fa-regular fa-circle fa-l"></i> Open</option>
+                                <option class="dropdown-item " value="2"><i class="fa-solid fa-circle-half-stroke fa-l"></i> In progress</option>
+                                <option class="dropdown-item " value="3"><i class="fa-solid fa-circle-pause fa-l"></i> Paused</option>
+                                <option class="dropdown-item " value="4"><i class="fa-solid fa-circle-check fa-l"></i> Closed</option>
+                              </select>
+                          </div>
+                          <div class="col-sm-4">
+                          <div class="input-group input-daterange " style="color:white;width: 150px;">
+                            
+                            <input type="text" id="start" name="deadline" class="form-control rounded-pill w-25" placeholder="Target" style="background-color: white;border-color: #3d3d3d;color:rgb(13, 13, 13);">
+                            <label class=" form-control-placeholder" id="start-p" for="start"></label>
+                            <!-- <span class="fa fa-calendar" id="fa-1" ></span> -->
+                          </div>
+                        </div>
+                          
+                    </div>
+                    <div class="form-row justify-content-end">
+                        <div class="col-sm-3 w-25 rounded-pill">
+                            <div class="rounded-pill">
+                                <select id="choices-multiple-remove-button" placeholder="Assign to"
+                                    class="rounded-pill" name="assignees" multiple>
+                                    
+                                    {% for member in team_members %}
+
+                                        <option value="{{member.team_member.custom_id}}">{{member.team_member.user.first_name}} {{member.team_member.user.last_name}}</option>
+                                    {% endfor %}
+
+
+                                </select>
+                            </div>
+                        </div>
+
+                        
+                    </div>
+
+                    
+                    
+                    <div class="form-row submit-btn justify-content-center">
+                        <div class="input-data rounded-pill">
+                            <div class="inner"></div>
+                            <input type="submit" value="submit">
+                            
+                        </div>
+                    </div>
+                </div>
+               
+
+            </form>
+             
+        </div>
+    </div>
+</div>
+
+
+<script>
+    var editor1 = new RichTextEditor("#description");
+</script>
+
+{% endblock content %}

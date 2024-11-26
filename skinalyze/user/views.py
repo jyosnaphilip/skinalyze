@@ -6,9 +6,6 @@ from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 # Create your views here.
 
-def home(request):
-    return render (request, 'users/index.html')
-
 def features(request):
     return render (request, 'users/features.html')
 
@@ -64,6 +61,8 @@ def user_login(request):
         user = authenticate(username=username, password=password)
         if user is not None: #authentication is successful
             login(request, user) #creates a session for the user when the user is logged in.
+            return render(request, 'users/first_sign.html')
+            
             
         else:
             messages.error(request, "Username or password is incorrect!")
@@ -110,3 +109,12 @@ def autumn_warm(request):
 
 def autumn_soft(request):
     return render(request, 'users/autumn_soft.html')
+
+def first_signin(request, customUser_id):
+    return render(request, 'users/first_sign_in.html')
+
+def skin_undertone(request, customUser_id):
+    return render(request, 'partials/skin_undertone.html')
+
+def skin_issues(request, customUser_id):
+    return render(request, 'partials/issues.html')

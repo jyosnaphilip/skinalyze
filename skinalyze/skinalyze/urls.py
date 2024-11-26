@@ -21,9 +21,9 @@ from user.views import *
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',home, name='home'),
-    path('features',features, name='features'),
-    path('about',about,name='about'),
-    path('reviews',review,name='review'),
+    path('features/',features, name='features'),
+    path('about/',about,name='about'),
+    path('reviews/',review,name='review'),
 
     path('register/',register,name='register'),
     path('login/',user_login,name='user_login'), 
@@ -39,4 +39,7 @@ urlpatterns = [
     path('autumn_deep/', autumn_deep, name='autumn_deep'),
     path('autumn_warm/', autumn_warm, name='autumn_warm'),
     path('autumn_soft/',autumn_soft, name='autumn_soft'),
+    path('first_sign',first_signin,name="first_sign"),
+    path('skin_undertone',skin_undertone,name="skin_undertone"),
+    path('skin_issues',skin_issues,name="skin_issues"),
 ]

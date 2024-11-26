@@ -16,8 +16,22 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from user.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path(''),
+    path('register/',register,name='register'),
+    path('login/',user_login,name='user_login'), 
+    path('winter_deep/', winter_deep, name='winter_deep'),
+    path('winter_cool/', winter_cool, name='winter_cool'),
+    path('winter_bright/', winter_bright, name='winter_bright'),
+    path('summer_soft/', summer_soft, name='summer_soft'),
+    path('summer_cool/', summer_cool, name='summer_cool'),
+    path('summer_light/', summer_light, name='summer_light'),
+    path('spring_warm/',spring_warm, name='spring_warm'),
+    path('spring_light/', spring_light, name='spring_light'),
+    path('spring_bright/', spring_bright, name='spring_bright'),
+    path('autumn_deep/', autumn_deep, name='autumn_deep'),
+    path('autumn_warm/', autumn_warm, name='autumn_warm'),
+    path('autumn_soft/',autumn_soft, name='autumn_soft'),
 ]

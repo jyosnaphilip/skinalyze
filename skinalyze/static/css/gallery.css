@@ -18,7 +18,7 @@ body {
 
   display: grid;
   gap: var(--g);
-  grid-template-columns: repeat(3, auto);
+  grid-template-columns: repeat(6, auto);
 }
 
 .color-box {

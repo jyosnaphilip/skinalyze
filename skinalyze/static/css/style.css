@@ -146,14 +146,14 @@ a:focus {
 }
 
 .custom_nav-container .navbar-toggler .navbar-toggler-icon {
-  background-image: url(../images/menu.png);
+  background-image: url(/images/menu.png);
   background-size: 30px;
 }
 
 /*end header section*/
 /* slider section */
 .slider_section {
-  background-image: url(bg-image.jpg);
+  background-image: url(static/images/bg-image.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   width: 90%;
@@ -175,20 +175,28 @@ a:focus {
 
 .slider_section .detail-box h1 {
   color: #ffff00;
-  font-size: 1.8rem;
+  font-size:28px;
   text-transform: uppercase;
-  font-weight: 400;
+  font-family: "Merriweather", serif;
+  font-weight: 500;
+  font-style: normal;
 }
 
 .slider_section .detail-box span {
   color: #fefdfc;
-  font-size: 3.5rem;
-  font-weight: 700;
+  font-size: 15px;
+  font-weight: 400;
+  font-family: "Merriweather", serif;
+  font-weight: 400;
+  font-style: normal;
 }
 
 .slider_section .detail-box p {
   color: #fefdfc;
   margin-top: 25px;
+  font-family: "Kanit", serif;
+  font-weight: 400;
+  font-style: normal;
 }
 
 .slider_section .detail-box .btn-box {
@@ -257,8 +265,8 @@ a:focus {
 }
 
 .offer_section .content-box .img-box {
-  min-width: 125px;
-  min-height: 115px;
+  min-width: 100px;
+  min-height: 100px;
   background-color: #eeeded;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -273,7 +281,7 @@ a:focus {
 }
 
 .offer_section .content-box .img-box svg {
-  width: 55px;
+  width: 150px;
   height: auto;
 }
 

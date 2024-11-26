@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+*{
+
+  font-family: 'Poppins', sans-serif;
+}
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: grid;
+  place-content: center;
+  
+  background-color: #f0f0f0;
+}
+
+.gallery {
+  --s: 150px; /* size of the box */
+  --g: 10px;  /* gap between boxes */
+
+  display: grid;
+  gap: var(--g);
+  grid-template-columns: repeat(3, auto);
+}
+
+.color-box {
+  width: var(--s);
+  height: var(--s);
+  position: relative;
+  background-color: inherit;
+  border-radius: 5px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.color-box::after {
+  content: attr(data-color); /* Display the color name */
+  position: absolute;
+  color: white;
+  font-size: 16px;
+  
+  opacity: 0; /* Initially hidden */
+  text-shadow: 0 0 5px rgba(0, 0, 0, 0.8);
+  transition: opacity 0.2s ease-in-out;
+}
+
+.color-box:hover::after {
+  opacity: 1; /* Show the name on hover */
+}

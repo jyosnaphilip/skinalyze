@@ -1,70 +1,73 @@
 {% extends 'login_base.html' %}
-{% load socialaccount %}
 {% load static %}
 {% block content %}
 
-
-
-<div class="container mt-0">
-    <div class="row justify-content-center">
-        <div class="col-sm-5 border rounded bg-light p-5 shadow">
-            <span class="border-start">
-                <img src="{% static 'images\signin.png' %}" alt="BuildR icon" style=" align-items: center; height: 14%; width: 40%;">
-                <h5 class="form-heading p-2" >Sign in</h5>
-                {% if messages %}
-                {% for message in messages %}
-                <p {% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</p>
-                {% endfor %}
-
-                {% endif %}
-                <form class="row g-3 form-floating" method="POST">
-                    {% csrf_token %}
-                    <div class="col-sm-12">
-                        <!-- <label for="validationDefaultUsername" class="form-label">Username</label> -->
-                        <input type="text" class="form-control form-heading" id="username" placeholder="Username"
-                            aria-describedby="inputGroupPrepend2" name="username" required>
-                    </div>
-
-
-                    <div class="col-sm-12">
-                        <!-- <label for="validationDefault03" class="form-label">City</label> -->
-                        <input type="password" class="form-control form-heading" id="password" name="password" required
-                            fdprocessedid="vlf8fr" placeholder="Password">
-                    </div>
-
-                    
-                    <div class="col-sm-12 text-center sub form-heading">
-                        <button class="btn btn-style form-heading" type="submit" href="{% url 'login' %}">Sign in</button>
-                    </div>
-
-
-                    <div class="row text-center">
-                        <div class="text-center ps-4">
-                            <a href="{% url 'register' %}" class="register-link form-heading">Don't have an account? Register Now</a>
-                        </div>
-                    </div>
-                    <div>
-                        <a href="{% provider_login_url 'google' %}"> <!--users will redirect to google -->
-                            <!-- In the callback, you would hide the gSignInWrapper element on a
-                            successful sign in -->
-                            <div id="gSignInWrapper">
-                              <div id="customBtn" class="customGPlusSignIn">
-                                <span class="icon"></span>
-                                <span class="buttonText"><img src="{% static 'images/google icon.png' %}" style="height:20px;width: 20px;">Sign in with Google</span>
-                              </div>
-                            </div>
-                            <div id="name"></div></a>
-
-                    </div>
-
-
-                </form>
-            </span>
-            
-        </div>
-       
+<div class="wrapper " style="width:50%;margin-top: 5px;" >
+    <div class="title-text">
+      <div class="title login">Login Form</div>
+      <div class="title signup">Signup Form</div>
     </div>
-    
-</div>
+
+    <div class="form-container">
+      <div class="slide-controls">
+        <input type="radio" name="slide" id="login" checked>
+        <input type="radio" name="slide" id="signup">
+        <label for="login" class="slide login">Login</label>
+        <label for="signup" class="slide signup">Signup</label>
+        <div class="slider-tab"></div>
+      </div>
+      {% if messages %}
+                {% for message in messages %}
+                    <p {% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</p>
+                {% endfor %}
+            
+            {% endif %}
+      <div class="form-inner">
+        <!-- Login Form -->
+        <form action="{% url 'user_login' %}" method="POST" class="login">
+            {% csrf_token %}
+          <div class="field">
+            <input type="text" name="username" placeholder="username" required>
+          </div>
+          <div class="field">
+            <input type="password" name="password" placeholder="Password" required>
+          </div>
+          
+          <div class="field btn">
+            <div class="btn-layer"></div>
+            <input type="submit" value="Login">
+          </div>
+        </form>
+
+        <!-- Signup Form -->
+        <form action="{% url 'register' %}" method="POST" class="signup">
+            {% csrf_token %}
+          <div class="field">
+            <input type="text" name="FirstName" placeholder="First Name" required>
+          </div>
+          <div class="field">
+            <input type="text" name="LastName" placeholder="Last Name" required>
+          </div>
+          <div class="field">
+            <input type="text" name="Username" placeholder="Username" required>
+          </div>
+          <div class="field">
+            <input type="text" name="Email" placeholder="Email Address" required>
+          </div>
+          <div class="field">
+            <input type="password" name="Password1" placeholder="Password" required>
+          </div>
+          <div class="field">
+            <input type="password" name="Password2" placeholder="Confirm Password" required>
+          </div>
+          
+          <div class="field btn">
+            <div class="btn-layer"></div>
+            <input type="submit" value="Signup">
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
 
 {% endblock content %}
